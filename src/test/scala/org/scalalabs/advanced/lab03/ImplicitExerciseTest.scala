@@ -1,6 +1,6 @@
 package org.scalalabs.advanced.lab03
 
-import org.junit.Test
+import org.junit._
 import org.scalatest.junit.JUnitSuite
 import org.junit.Assert._
 
@@ -14,6 +14,7 @@ import org.junit.Assert._
 
 class ImplicitExerciseTest extends JUnitSuite {
 
+  @Ignore("Uncomment and fix me")
   @Test
   def shouldAddIntsAndStrings = {
 
@@ -23,6 +24,7 @@ class ImplicitExerciseTest extends JUnitSuite {
     //assertEquals("1234", add(List("1", "2", "3", "4")))
   }
 
+  @Ignore("Uncomment and fix me")
   @Test
   def nicerAddIntsAndStrings = {
     //TODO uncomment the following lines, and make them work by implementing some implicit magic in the Ord object, defined within the ImplicitExercise object
@@ -31,6 +33,7 @@ class ImplicitExerciseTest extends JUnitSuite {
     //assertEquals("1234", List("1", "2", "3", "4") add)
   }
 
+  @Ignore("Uncomment and fix me")
   @Test
   def addUsingVarargsAndScalaNumeric = {
 
@@ -43,6 +46,7 @@ class ImplicitExerciseTest extends JUnitSuite {
     assertTrue(add(10L, 20L, 30L, 40L, 50L).isInstanceOf[Long])
   }
 
+  @Ignore("Uncomment and fix me")
   @Test
   def shouldOrderUsingImplicitOrd = {
 
@@ -59,6 +63,7 @@ class ImplicitExerciseTest extends JUnitSuite {
     //    assertEquals("sentence", Ord[Int].maxFor[String](List("A", "sentence", "of", "various", "lengths"),(t => t.length)))
   }
 
+  @Ignore("Uncomment and fix me")
   @Test
   def useEvenMoreAwesomeImplicitsAndTypesForOrderingLists = {
 
@@ -71,6 +76,7 @@ class ImplicitExerciseTest extends JUnitSuite {
     //    assertEquals("the", List("the", "quick", "brown", "fox", "jumped", "over", "the", "lazy", "dog") mymin Ord[Int].on[String](t => t.length))
   }
 
+  @Ignore("Uncomment and fix me")
   @Test
   def aSimpleMonadIllustration = {
 

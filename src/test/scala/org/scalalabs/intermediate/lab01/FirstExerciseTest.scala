@@ -8,6 +8,7 @@ import org.joda.time.format._
 
 import org.scalatest.junit.JUnitSuite
 
+import org.junit.Ignore
 import org.junit.Test
 
 /*
@@ -35,19 +36,18 @@ class FirstExerciseTest extends JUnitSuite {
   // The tests
   // ========================================================================
 
+  @Ignore("Uncomment and fix me")
   @Test
   def testTwitterStatusParsing() {
-    fail("Fix this test")
-    //TODO uncomment and fix test
-    //	    val tweets = getListOfTweets()
+    // val tweets = getListOfTweets()
 
     // there should be 20 tweets
-    //	    assertResult(20) {tweets.size}
+    // assertResult(20) { tweets.size }
   }
 
+  @Ignore("Uncomment and fix me")
   @Test
   def testAttributesOfFirstTweet() {
-    fail("Fix this test")
     //TODO uncomment and fix test
     //	    val firstTweet = getListOfTweets()(0)
     //
@@ -60,16 +60,16 @@ class FirstExerciseTest extends JUnitSuite {
     //
     //	    assertResult("Having much more fun working on #jaoo talks than  yesterday's hard drive crash redddddddcovery.") {
     //	        firstTweet.text
-    //        }                                                    
+    //        }
     //
     //	    assertResult(twitterDateTimeFormat.parseDateTime("Mon Aug 17 14:19:06 +0000 2009")) {
     //	        firstTweet.createdAt
     //        }
   }
 
+  @Ignore("Uncomment and fix me")
   @Test
   def testAttributesOfUserAssociatedWithFirstTweet() {
-    fail("uncomment and fix!")
     //TODO uncomment these tests and assertions
     //	    val firstTweetUser: TwitterUser = getListOfTweets()(0).user
     //

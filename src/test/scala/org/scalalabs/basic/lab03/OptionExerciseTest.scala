@@ -13,20 +13,25 @@ class OptionExerciseTest extends Specification {
 
   "OptionExercise01" should {
     "correctly show the state of filled room (e.g. Some(12))" in {
+      skipped("Fix me")
       roomState(rooms, 1) === "12"
     }
     "correctly show the state of an empty room (None)" in {
+      skipped("Fix me")
       roomState(rooms, 2) === "empty"
     }
     "correctly show the state of a room that is not available (Some(locked))" in {
+      skipped("Fix me")
       roomState(rooms, 3) === "not available"
     }
     "correctly show the state of a room that does not exist (no entry in Map)" in {
+      skipped("Fix me")
       roomState(rooms, 100) === "not existing"
     }
   }
   "OptionExercise02" should {
     "calculate total amount of people in rooms" in {
+      skipped("Fix me")
       OptionExercise02.totalPeopleInRooms(rooms) === 34
     }
   }

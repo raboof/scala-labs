@@ -16,18 +16,20 @@ class FunctionsExerciseTest extends Specification {
         Thread.sleep(10)
         4
       }
-      //uncomment next line
-      //4 ==== FunctionsExercise01.measure(block)
+      skipped("Uncomment and fix me")
+      // 4 ==== FunctionsExercise01.measure(block)
       FunctionsExercise01.printed must beMatching("""The execution took: ([1-9][0-9]) ms""")
     }
   }
   "FunctionsExercise02" should {
     "increment value with plusOne method" in {
+      skipped("Fix me")
       3 == FunctionsExercise02.plusOne(2)
       6 == FunctionsExercise02.plusOne(5)
     }
 
     "control structure that closes closable with using method" in {
+      skipped("Fix me")
       //write a control structure that automatically closes any class that has a close method
 
       //a more real world example than given here would be a reader, or JDBC connection, or anything else that is closable:

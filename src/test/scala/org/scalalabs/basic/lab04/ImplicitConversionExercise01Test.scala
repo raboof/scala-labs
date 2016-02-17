@@ -18,6 +18,7 @@ class ImplicitConversionExercise01Test extends Specification with DeactivatedTim
 
   "Exercise01" should {
     "convert string to list" in {
+      skipped("Fix me")
       List('H', 'e', 'l', 'l', 'o') ==== stringToList("Hello")
     }
   }

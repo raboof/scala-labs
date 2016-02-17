@@ -22,6 +22,7 @@ class HelloWorldExerciseTest extends Specification {
   */
   "Scala Objects" should {
     "say hello" in {
+      skipped("Fix me")
       // The === operator used below is not an operator at all but a method in the
       // JUnitSuite super class, which is part of the ScalaTest library. it behaves
       // as a traditional assertEquals but produces very clear assertion errors when
@@ -29,6 +30,7 @@ class HelloWorldExerciseTest extends Specification {
       "Hello from Scala" === HelloWorld.sayHello
     }
     "echo" in {
+      skipped("Fix me")
       "Echo" === HelloWorld.echo("Echo")
     }
   }
@@ -46,6 +48,7 @@ class HelloWorldExerciseTest extends Specification {
   */
   "Scala Traits" should {
     "say hello" in {
+      skipped("Fix me")
       "Hello World" === HelloWorldWithTraits.hello
     }
   }
@@ -65,6 +68,7 @@ class HelloWorldExerciseTest extends Specification {
   */
   "Scala Companion Object" should {
     "serve as factory" in {
+      skipped("Fix me")
       val helloWorldInstance = HelloWorldClassAndObject("Hello")
       "Hello" === helloWorldInstance.echo
     }

@@ -2,6 +2,7 @@ package org.scalalabs.advanced.lab01
 
 import org.scalatest.junit.JUnitSuite
 import org.junit.Test
+import org.junit.Ignore
 import org.junit.Assert._
 import PatternMatchingExercise._
 
@@ -16,6 +17,7 @@ class PatternMatchingExcerciseTest extends JUnitSuite {
    * CUSTOM ARGUMENT EXTRACTORS
    * ***********************************************************************
    */
+  @Ignore("Fix me")
   @Test
   def matchFileNameTest() {
     val matchResult = "HelloAdvancedWorldOf.scala" match {
@@ -25,6 +27,7 @@ class PatternMatchingExcerciseTest extends JUnitSuite {
     assert(matchResult == "I match HelloAdvancedWorldOf of filetype scala")
   }
 
+  @Ignore("Fix me")
   @Test
   def matchElementsInPathTest() {
     val matchResult = "/home/anyuser/development/scala/" match {
@@ -34,6 +37,7 @@ class PatternMatchingExcerciseTest extends JUnitSuite {
     assert(matchResult == "The path starts with scala and ends with home")
   }
 
+  @Ignore("Fix me")
   @Test
   def matchFileNameInPathTest() {
     val matchResult = fileNameRetriever("/home/anyuser/development/scala/HelloAdvancedWorldOf.scala")
@@ -46,6 +50,7 @@ class PatternMatchingExcerciseTest extends JUnitSuite {
    * ***********************************************************************
    */
 
+  @Ignore("Fix me")
   @Test
   def regexLogLineMatchTest() {
     val matchResult = "2010-04-08T04:08:05.889Z;PRF;server1;1004080608005100002;Processing took 200 ms" match {
@@ -55,6 +60,7 @@ class PatternMatchingExcerciseTest extends JUnitSuite {
     assert(matchResult == "2010-04-08T04:08:05.889Z|1|1004080608005100002|200")
   }
 
+  @Ignore("Fix me")
   @Test
   def regexMultiplePhoneNumberMatchTest() {
     val phoneNumberText = "For marketing call 040-2920029, for sales: 0402920029 for finance: (040)2920029"
@@ -69,24 +75,28 @@ class PatternMatchingExcerciseTest extends JUnitSuite {
    * ***********************************************************************
    */
 
+  @Ignore("Fix me")
   @Test
   def xmlMatchAllGenres() {
     val result = filterAllGenres
     assert("Comedy" :: "Action" :: Nil == result)
   }
 
+  @Ignore("Fix me")
   @Test
   def xmlMatchAllTop10Titles() {
     val result = filterTop10Titles
     assert("Ocean's 13" :: Nil == result)
   }
 
+  @Ignore("Fix me")
   @Test
   def xmlMatchAllActorsStartingWithG() {
     val result = filterActorsStartingWithG
     assert("Gwyneth Paltrow" :: "Geoffrey Rush" :: Nil == result)
   }
 
+  @Ignore("Fix me")
   @Test
   def xmlMatchAllTextNodes() {
     val result = recursivelyExtractAllTextNodes

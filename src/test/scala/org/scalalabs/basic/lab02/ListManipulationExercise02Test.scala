@@ -24,11 +24,13 @@ class ListManipulationExercise02Test extends Specification {
 
   "A Scala List" should {
     "find max int in list" in {
+      skipped("Fix me")
       9 === maxElementInList(List(1, 9, 4, 9, 8))
       25 === maxElementInList(List(1, 7, 5, 17, 25, 24, 22, 19))
     }
 
     "calc sum of same positioned elements in two lists" in {
+      skipped("Fix me")
       List(2, 8, 14) === sumOfTwo(List(1, 5, 9), List(1, 3, 5))
       //if one of the lists is empty return the ones with values
       List(1, 2, 3) === sumOfTwo(List(1, 2, 3), List())
@@ -36,6 +38,7 @@ class ListManipulationExercise02Test extends Specification {
     }
 
     "calc sum of same positioned elements in many lists" in {
+      skipped("Fix me")
       List(12, 15, 18) === sumOfMany(List(1, 2, 3), List(4, 5, 6), List(7, 8, 9))
     }
 

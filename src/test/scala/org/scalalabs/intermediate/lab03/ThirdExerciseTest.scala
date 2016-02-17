@@ -2,7 +2,7 @@ package org.scalalabs.intermediate.lab03
 
 import org.scalatest.junit.JUnitSuite
 
-import org.junit.Test
+import org.junit._
 
 /*
  * Exercise 3: Talking http to the real deal: building a Twitter API
@@ -48,9 +48,9 @@ class ThirdExerciseTest extends JUnitSuite {
   // The tests
   // ========================================================================
 
+  @Ignore("Uncomment and fix me")
   @Test
   def testPublicTimelineWithoutAuthentication {
-    fail("TODO: uncomment and fix")
     //        val twitter:UnauthenticatedSession = TwitterSession()
     //        val publicTimeline:TwitterTimeline = twitter.publicTimeline
     //
@@ -58,18 +58,18 @@ class ThirdExerciseTest extends JUnitSuite {
     //        assertResult(true) {publicTimeline.forall(_.user != null)}
   }
 
+  @Ignore("Uncomment and fix me")
   @Test
   def testFriendsTimelineWithAuthentication {
-    fail("TODO: uncomment and fix")
     //        val twitter:AuthenticatedSession = TwitterSession(testAuthInfo)
     //        val friendsTimeline = twitter.friendsTimeline
     //
     //        assertResult(true) {friendsTimeline.forall(_.user != null)}
   }
 
+  @Ignore("Uncomment and fix me")
   @Test
   def testFriendsTimelineShouldOnlyContainTweetsByFriendsOrByMyself {
-    fail("TODO: uncomment and fix")
     //        val twitter:AuthenticatedSession = TwitterSession(testAuthInfo)
     //
     //        val friendsTimeline = twitter.friendsTimeline
@@ -78,18 +78,18 @@ class ThirdExerciseTest extends JUnitSuite {
     //        assertResult(true) {friendsTimeline.forall(tweet => friends.exists(_ == tweet.user) || testAccountUsername == tweet.user.screenName)}
   }
 
+  @Ignore("Uncomment and fix me")
   @Test
   def testUserTimelineWithoutAuthentication {
-    fail("TODO: uncomment and fix")
     //        val twitter:UnauthenticatedSession = TwitterSession()
     //        val userTimeline:TwitterTimeline = twitter.userTimeline("sgrijpink")
     //
     //        assertResult(true) {userTimeline.forall(_.user.screenName == "sgrijpink")}
   }
 
+  @Ignore("Uncomment and fix me")
   @Test
   def testUserTimelineWithAuthentication {
-    fail("TODO: uncomment and fix")
     //        val twitter:AuthenticatedSession = TwitterSession(testAuthInfo)
     //        val userTimeline:TwitterTimeline = twitter.userTimeline(testAccountUsername)
     //
@@ -98,21 +98,21 @@ class ThirdExerciseTest extends JUnitSuite {
 
   // Bonus exercise !!!
 
-  //    @Test
-  //    def testTweet() {
-  fail("TODO: uncomment and fix")
-  //        val twitter:AuthenticatedSession = TwitterSession(testAuthInfo)
-  //        val baseText = "Yet another test tweet from a #Scala unit test. Let's include a random number: "
-  //        val random = new Random
-  //
-  // this might a bit of a privacy-sensitive but I was looking for a way to be able to
-  // recognize your own generated tweet from others. Other solutions that are less privacy
-  // sensitive are more than welcome. Feel free to change this to any other string that 
-  // you will recognize.
-  //        val tweet = twitter.tweet(baseText + random.nextLong);
-  //
-  //        assertResult(testAccountUsername) {tweet.user.screenName}
-  //        assertResult(true) {tweet.text.contains(baseText)}
-  //    }
+  @Ignore("Uncomment and fix me")
+  @Test
+  def testTweet() {
+    //        val twitter:AuthenticatedSession = TwitterSession(testAuthInfo)
+    //        val baseText = "Yet another test tweet from a #Scala unit test. Let's include a random number: "
+    //        val random = new Random
+    //
+    // this might a bit of a privacy-sensitive but I was looking for a way to be able to
+    // recognize your own generated tweet from others. Other solutions that are less privacy
+    // sensitive are more than welcome. Feel free to change this to any other string that
+    // you will recognize.
+    //        val tweet = twitter.tweet(baseText + random.nextLong);
+    //
+    //        assertResult(testAccountUsername) {tweet.user.screenName}
+    //        assertResult(true) {tweet.text.contains(baseText)}
+  }
 
 }

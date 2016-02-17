@@ -17,6 +17,7 @@ class CollectionExerciseTest extends Specification {
 
   "CollectionExercise01: GoogleCodeJam" should {
     "get first Element in list" in {
+      skipped("Fix me")
       val in1 = "ejp mysljylc kd kxveddknmc re jsicpdrysi"
       val in2 = "rbcpc ypc rtcsra dkh wyfrepkym veddknkmkrkcd"
       val in3 = "de kr kd eoya kw aej tysr re ujdr lkgc jv"
@@ -31,6 +32,7 @@ class CollectionExerciseTest extends Specification {
 
   "CollectionExercise02:" should {
     "group a list of adults by age group. Each group is sorted by name" in {
+      skipped("Fix me")
       val jack = new Person(14, "Jack")
       val duke = new Person(32, "Duke")
       val jeniffer = new Person(34, "Jeniffer")
@@ -44,6 +46,7 @@ class CollectionExerciseTest extends Specification {
 
   "CollectionExercise03" should {
     "check that each subsequent value in the sequence increases" in {
+      skipped("Fix me")
       CollectionExercise03.checkValuesIncrease(Seq(1, 2, 3)) ==== true
       CollectionExercise03.checkValuesIncrease(Seq(1)) ==== true
       CollectionExercise03.checkValuesIncrease(Seq(1, 2, 100)) ==== true
@@ -53,6 +56,7 @@ class CollectionExerciseTest extends Specification {
 
   "CollectionExercise04:" should {
     "calculate the length of the longest word in a list of sentences" in {
+      skipped("Fix me")
       val l1 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque pharetra lorem ut sem feugiat tristique. "
       val l2 = "Etiam id magna ut libero ullamcorperano scelerisque. "
 
@@ -63,6 +67,7 @@ class CollectionExerciseTest extends Specification {
 
   "CollectionExercise05" should {
     "use foldLeft for common higher order functions" in {
+      skipped("Fix me")
       val input = Seq(1, 2, 3)
       input.filter(_ % 2 == 0) ==== CollectionExercise05.filterWithFoldLeft(input)
       input.groupBy(_ % 2 == 0) ==== CollectionExercise05.groupByWithFoldLeft(input)

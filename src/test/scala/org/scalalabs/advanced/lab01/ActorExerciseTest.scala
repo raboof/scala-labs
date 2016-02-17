@@ -3,7 +3,7 @@ package org.scalalabs.advanced.lab01
 import org.scalatest._
 import org.scalatest.junit.JUnitSuite
 import org.junit.Assert._
-import org.junit.{ Before, Test }
+import org.junit.{ Before, Test, Ignore }
 
 /**
  * User: arjan
@@ -13,6 +13,7 @@ import org.junit.{ Before, Test }
 
 class ActorExerciseTest extends JUnitSuite {
 
+  @Ignore("Fix me")
   @Test
   def shouldEcho = {
     val echo = new EchoActor
@@ -21,6 +22,7 @@ class ActorExerciseTest extends JUnitSuite {
     assertEquals("Got message: Hello EchoActor", (echo !? (10, "Hello EchoActor")) getOrElse (""))
   }
 
+  @Ignore("Fix me")
   @Test
   def shouldIncrementAndDecrement = {
     val ctr = new Counter
@@ -35,6 +37,7 @@ class ActorExerciseTest extends JUnitSuite {
     assertEquals(1, (ctr !? (10, Curr)) getOrElse (-1))
   }
 
+  @Ignore("Fix me")
   @Test
   def clientShouldAddMessageToPrivateLog = {
     val chatClient = new SimpleChatClient
@@ -50,6 +53,7 @@ class ActorExerciseTest extends JUnitSuite {
     assertEquals(List("message2", "message1"), msg getOrElse (Nil))
   }
 
+  @Ignore("Fix me")
   @Test
   def shouldAddMessageToChatLog = {
     val chatServer = new ChatService
@@ -64,6 +68,7 @@ class ActorExerciseTest extends JUnitSuite {
     assertEquals(List("message2", "message1"), msg.getOrElse(Nil))
   }
 
+  @Ignore("Fix me")
   @Test
   def shouldAddListenersAndPublishMessagesToAll = {
     val chatServer = new ChatService
