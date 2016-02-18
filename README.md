@@ -1,5 +1,7 @@
 This repository is an experiment for a new way of managing code for a workshop/course.
 
+# General idea
+
 Maintaining the 'given' and 'solutions' code for a workshop/course is a challenge, especially
 if there are a number of exercise where each exercise builds on the previous.
 
@@ -21,6 +23,7 @@ generate a repo specifically for this course
 * We could host this repo ourself (spinning up an image on AWS or similar), and have fine-grained
 control over e.g. when we allow access to the solutions, and some nice UI features.
 
+# Proposal
 
 The general approach is to have one branch (this one) containing metadata about the workshop/course,
 and a branch for each starting point and/or example solution in the course.
@@ -30,6 +33,8 @@ check things like the fact that each 'starting point' is a parent of each 'examp
 
 When doing maintenance on the course, you could start by making the change on the 'earliest' branch where
 the change is desired, and then merge it into all later steps.
+
+# Example
 
 For example, you can easily see the difference between the solutions and the excercises:
 
