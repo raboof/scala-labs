@@ -30,3 +30,15 @@ check things like the fact that each 'starting point' is a parent of each 'examp
 
 When doing maintenance on the course, you could start by making the change on the 'earliest' branch where
 the change is desired, and then merge it into all later steps.
+
+For example, you can easily see the difference between the solutions and the excercises:
+
+  https://github.com/raboof/scala-labs/compare/given...raboof:basic02
+
+And a bit of maintenance on the given code:
+
+  https://github.com/raboof/scala-labs/commit/4f7eda2e95c7d5bfc0ac20bafa098423cb70985b
+
+Could simply be merged in to the solution branch:
+
+  https://github.com/raboof/scala-labs/commit/f33ec69175c3b5161a5a10024eab4235a56a2240
