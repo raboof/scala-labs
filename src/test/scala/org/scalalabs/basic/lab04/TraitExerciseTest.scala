@@ -4,19 +4,18 @@ import org.specs2.runner.JUnitRunner
 import org.specs2.mutable.Specification
 import org.specs2.specification._
 import Level._
+
 @RunWith(classOf[JUnitRunner])
 class TraitExerciseTest extends Specification {
   sequential
   val enableAllLevels = Map(Debug -> true, Info -> true)
   val disableAllLevels = Map(Debug -> false, Info -> false)
   val firstDebugStatement = "Debug   org.scalalabs.basic.lab04.DummyService Prepare sending"
-  val infoStatement = (msg: String) => s"Info    org.scalalabs.basic.lab04.DummyService $msg successfully sent"
+  val infoStatement = (msg: String) ⇒ s"Info    org.scalalabs.basic.lab04.DummyService $msg successfully sent"
   val lastDebugStatement = "Debug   org.scalalabs.basic.lab04.DummyService Done"
 
   "Exercise 1: Logger Trait" should {
     "log all events" in new cleanLogger {
-      skipped("Create implementation then remove skipped")
-
       SimpleLogger.logConfig = enableAllLevels
       val msg = "message"
       val service = new DummyService().sendSomething(msg)
@@ -34,9 +33,8 @@ class TraitExerciseTest extends Specification {
         longStringCreated = "Scala " * 1000000
         longStringCreated
       }
-      skipped("Uncomment and fix me")
-      //val impl = new AnyRef with Loggable
-      //impl.debug(createLongString)
+      val impl = new AnyRef with Loggable
+      impl.debug(createLongString)
 
       SimpleLogger.logHistory must beEmpty
       longStringCreated ==== ""
