@@ -12,7 +12,6 @@ class PatternMatchingExerciseTest extends Specification {
 
   "PatternMatchingExercise" should {
     "match language on strings" in {
-      skipped("Fix me")
       "OOP" === describeLanguage("Java")
       "OOP" === describeLanguage("Smalltalk")
       "Functional" === describeLanguage("Clojure")
@@ -22,7 +21,6 @@ class PatternMatchingExerciseTest extends Specification {
       "Unknown" === describeLanguage("Oz")
     }
     "match on input type" in {
-      skipped("Fix me")
       "A string with length 8" === matchOnInputType("A String")
       "A positive integer" === matchOnInputType(10)
       "A person with name: Jack" === matchOnInputType(Person("Jack", 39))
@@ -34,12 +32,10 @@ class PatternMatchingExerciseTest extends Specification {
       "A null value" === matchOnInputType(null)
     }
     "check age" in {
-      skipped("Fix me")
       Some("Jack") === older(new Person("Jack", 31))
       None === older(new Person("Jack", 30))
     }
     "match partial functions" in {
-      skipped("Fix me")
       //pf1 and pf2 are both partial functions.
       //These inherit from Scala's Function class, with an extra method: isDefinedAt
       //  pf3 should be defined in terms of pf1 and pf2

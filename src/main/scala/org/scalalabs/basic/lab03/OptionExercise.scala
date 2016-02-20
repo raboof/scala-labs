@@ -1,6 +1,5 @@
 package org.scalalabs.basic.lab03
 import scala.util.control._
-import sys._
 
 package object lab03 {
 
@@ -21,22 +20,39 @@ object OptionExercise01 {
    * Implement the room state method that should return the state of a room as a String as follows:
    * - filled: return total people:     E.g: Some("12") is "12"
    * - locked: return "not available"   E.g. Some("locked") is "not available"
-   * - empty:  return "empty"	        E.g. None is "empty"
-   * - does not exist: 					"not existing"
+   * - empty:  return "empty"          E.g. None is "empty"
+   * - does not exist:                                         "not existing"
    */
   def roomState(rooms: Map[Int, Option[String]], room: Int): String = {
-    error("Fix me")
+    rooms.get(room).map { roomState ⇒
+      roomState.map { value ⇒
+        if (value == "locked") "not available"
+        else value
+      }
+        .getOrElse("empty")
+    }
+      .getOrElse("not existing")
   }
 
 }
 
 object OptionExercise02 {
+
   /**
    * Calculate the total amount of people in all rooms
    * Hint: make use of a for expression and scala.util.control.Exception.allCatch opt (...)
    * to convert a possible numeric String (e.g. Some("12")) to an integer
    */
   def totalPeopleInRooms(rooms: Map[Int, Option[String]]): Int = {
-    error("Fix me")
+    //functional solution
+    rooms.values.flatMap(i ⇒ Exception.allCatch.opt(i.get.toInt)).sum
+
+    val res = for {
+      occupationOpt ← rooms.values
+      occupation ← occupationOpt
+      occupationNo ← Exception.allCatch opt occupation.toInt
+    } yield occupationNo
+    res.sum
   }
+
 }

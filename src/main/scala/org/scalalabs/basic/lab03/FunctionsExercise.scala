@@ -13,11 +13,14 @@ import sys._
  */
 object FunctionsExercise01 {
 
-  var printed = ""
+  var printed: String = _
   private def logPerf(elapsed: Long) = printed = s"The execution took: $elapsed ms"
 
-  def measure[T]( /* provide correct method parameter */ ): T = {
-    error("fix me")
+  def measure[T](block: ⇒ T): T = {
+    val started = System.currentTimeMillis
+    val res = block
+    logPerf(System.currentTimeMillis - started)
+    res
   }
 
 }
@@ -29,17 +32,18 @@ object FunctionsExercise01 {
  * Provide a suitable implementation in order to make the corresponding unittest work.
  */
 object FunctionsExercise02 {
-
   def plusOne(x: Int): Int = {
     //implement this using a partial function
-    error("fix me")
+    val partial = plus(1, _: Int)
+    partial(x)
   }
 
-  def plus(x: Int, y: Int): Int = {
-    x + y
-  }
+  def plus(x: Int, y: Int): Int = x + y
 
-  def using[A <: { def close(): Unit }, B](closable: A)(f: A => B): B = {
-    error("fix me")
-  }
+  def using[A <: { def close(): Unit }, B](closable: A)(f: A ⇒ B): B =
+    try {
+      f(closable)
+    } finally {
+      closable.close()
+    }
 }

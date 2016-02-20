@@ -12,12 +12,10 @@ class ForExpressionExerciseTest extends Specification {
 
   "ForExpressionExercise01" should {
     "find largest palindrome using a for expression" in {
-      skipped("Fix me")
       9009 === ForExpressionExercise01.largestPalindromWithForExpression(2)
       906609 === ForExpressionExercise01.largestPalindromWithForExpression(3)
     }
     "find largest palindrome using a higher order functions" in {
-      skipped("Fix me")
       9009 === ForExpressionExercise01.largestPalindromWithHigherOrderFunctions(2)
       906609 === ForExpressionExercise01.largestPalindromWithHigherOrderFunctions(3)
     }
