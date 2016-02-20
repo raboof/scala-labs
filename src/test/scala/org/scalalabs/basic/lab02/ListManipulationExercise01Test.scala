@@ -6,6 +6,7 @@ import org.junit.runner.RunWith
 import org.specs2.mutable.Specification
 import org.specs2.runner.JUnitRunner
 import ListManipulationExercise01._
+
 /**
  * Lab 02: List operations
  *
@@ -29,54 +30,45 @@ class ListManipulationExercise01Test extends Specification {
   "A Scala List" should {
 
     "get first Element in list" in {
-      skipped("Fix me")
       val result: String = firstElementInList(listOfStrings)
       "One" === result
     }
 
     "calculate sum of list" in {
-      skipped("Fix me")
       15 === sumOfList(List(1, 2, 3, 4, 5))
     }
 
     "get last element in list" in {
-      skipped("Fix me")
       "Three" === lastElementInList(listOfStrings)
       9 === lastElementInList(List(1, 6, 10, 33, 54, 9))
     }
 
     "get nth element in list" in {
-      skipped("Fix me")
       "One" === nthElementInList(0, listOfStrings)
       "Two" === nthElementInList(1, listOfStrings)
       "Three" === nthElementInList(2, listOfStrings)
     }
 
     "concat two lists" in {
-      skipped("Fix me")
       List("One", "Two", "Three", "Four", "Five") === concatLists(listOfStrings, List("Four", "Five"))
     }
 
     "contains One Two And Three" in {
-      skipped("Fix me")
       elementExists(listOfStrings, "One")
       elementExists(listOfStrings, "Two")
       elementExists(listOfStrings, "Three")
     }
 
     "sort list of strings" in {
-      skipped("Fix me")
       val l = List("Sjors", "Arjan", "Age", "Lieke", "J-Fall", "ScalaLabs")
       List("Age", "Arjan", "J-Fall", "Lieke", "ScalaLabs", "Sjors") === sortList(l)
     }
 
     "get list contains two odd elements" in {
-      skipped("Fix me")
       List(1, 3, 5) === oddElements(List(1, 2, 3, 4, 5))
     }
 
     "get tails of list" in {
-      skipped("Fix me")
       List(List(1, 2, 3, 4, 5), List(2, 3, 4, 5), List(3, 4, 5), List(4, 5), List(5), List()) === tails(List(1, 2, 3, 4, 5))
     }
   }
