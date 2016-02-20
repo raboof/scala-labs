@@ -31,7 +31,7 @@ case class Response(
 )
 
 case class Order(
-  val userId: String,
+    val userId: String,
     val paymentMethod: PaymentMethod,
     val amount: Int
 ) {
