@@ -9,15 +9,17 @@ object GitRepo {
     .build()
   private val walk = new RevWalk(repo);
 
-  private def isParent(parent: RevCommit, child: RevCommit): Boolean = {
+  private def isParent(parent: RevCommit, child: RevCommit, maxDepth: Int = 50): Boolean = {
     if (parent.equals(child)) {
-        true;
+      true;
+    } else if (maxDepth == 0) {
+      false;
     } else {
-        val parents = Option(child.getParents())
-        parents.map(_.filter(p => isParent(parent, p)).nonEmpty).getOrElse(false)
+      val parents = Option(walk.parseCommit(child.getId()).getParents)
+      parents.map(_.filter(p => isParent(parent, p, maxDepth - 1)).nonEmpty).getOrElse(false)
     }
   }
-  
+
   def isParent(parentBranch: String, childBranch: String): Boolean = {
     val childCommit = walk.parseCommit(repo.getRef("refs/heads/" + childBranch).getObjectId())
     val parentCommit = walk.parseCommit(repo.getRef("refs/heads/" + parentBranch).getObjectId())
