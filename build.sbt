@@ -4,4 +4,4 @@ libraryDependencies ++= Seq(
   
 )
 
-mainClass in Compile := Some("CheckBranches")
+mainClass in Compile := Some("CheckBasicCourse")
