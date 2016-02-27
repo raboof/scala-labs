@@ -18,7 +18,7 @@ case class Graph[T] private (parents: SetMultiMap[T, T]) {
 }
 
 object Graph {
-  def empty[T] = Graph[T](Map.empty[T, Set[T]])
+  def empty[T] = Graph[T](Map.empty[T, Set[T]].withDefaultValue(Set.empty[T]))
 
   /** Create graph based on child -> parent mappings */
   def apply[T](seq: Seq[(T, T)]): Graph[T] = seq.foldLeft(empty[T])((acc, t) => acc.add(t._1, t._2))

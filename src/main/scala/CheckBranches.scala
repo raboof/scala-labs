@@ -8,7 +8,7 @@ object CheckBranches {
 
     def recommendedMerges(node: String): Vector[(String, String)] = {
       desiredGraph
-        .parents.get(node).getOrElse(Nil)
+        .parents(node)
         .toVector
         .flatMap(recommendedMerges(node, _))
     }
