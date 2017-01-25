@@ -5,3 +5,11 @@ libraryDependencies ++= Seq(
 )
 
 mainClass in Compile := Some("CheckBasicCourse")
+
+assemblyMergeStrategy in assembly := {
+  case PathList("plugin.properties", xs @ _*) => MergeStrategy.discard
+  case x => {
+    val oldStrategy = (assemblyMergeStrategy in assembly).value
+    oldStrategy(x)
+  }
+}
