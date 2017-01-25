@@ -37,7 +37,7 @@ the change is desired, and then merge it into all later steps.
 
 For shipping code to clients, we could create a shallow checkout of the repository that only contains the latest version of each step.
 
-![Diagram showing the workflow](./workflow.svg)
+![Diagram showing the workflow](./workflow.png)
 
 # Example
 
