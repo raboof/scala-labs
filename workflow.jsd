@@ -1,0 +1,9 @@
+given->step 1:
+Note over given: Update version
+step 1->step 2: merge
+step 2->final solution: merge
+Note over step 1: Update assignment
+step 1->step 2: merge
+Note over step 2: Update solution
+step 2->final solution: merge
+Note over given,final solution:Ship shallow checkout to participants

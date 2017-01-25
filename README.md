@@ -1,8 +1,9 @@
-This repository is an experiment for a new way of managing code for a workshop/course.
+Easily manage course material consisting of multiple phases that build on each
+other
 
-# General idea
+# Context
 
-Maintaining the 'given' and 'solutions' code for a workshop/course is a challenge, especially
+Maintaining the 'given' and 'solution' code for a workshop/course is a challenge, especially
 if there are a number of exercises where each exercise builds on the previous.
 
 The main initial goals of this experiment are to:
@@ -28,11 +29,15 @@ control over e.g. when we allow access to the solutions, and some nice UI featur
 The general approach is to have one branch (this one) containing metadata about the workshop/course,
 and a branch for each starting point and/or example solution in the course.
 
-Each branch should be a valid project that can be checked by CI. From the 'metadata branch' we could
+Each branch should be a valid project that can be checked (by CI or a local tool such as sbt). From the 'metadata branch' we could
 verify broader invariants, such as validating each 'starting point' is a git parent of each 'example solution' in the course.
 
 When doing maintenance on the course, you could start by making the change on the 'earliest' branch where
 the change is desired, and then merge it into all later steps.
+
+For shipping code to clients, we could create a shallow checkout of the repository that only contains the latest version of each step.
+
+![Diagram showing the workflow](./workflow.svg)
 
 # Example
 
