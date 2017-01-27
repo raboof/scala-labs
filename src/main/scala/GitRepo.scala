@@ -28,4 +28,25 @@ object GitRepo extends Repo {
 
     isParent(parentCommit, childCommit)
   }
+  
+  private def distanceTo(parent: RevCommit, child: RevCommit, maxDepth: Int = 50): Option[Int] = {
+    if (parent.equals(child)) {
+      Some(0)
+    } else if (maxDepth == 0) {
+      None
+    } else {
+      val parents = Option(walk.parseCommit(child.getId()).getParents)
+      parents
+        .flatMap(_.flatMap(p => distanceTo(parent, p, maxDepth - 1)).reduceOption(_ min _))
+        .map(_ + 1)
+    }
+  }
+
+  def distanceTo(parentBranchName: String, childBranchName: String): Option[Int] = {
+    // TODO: Take into account remotes/origin/[branch-name]
+    val childCommit = walk.parseCommit(repo.getRef("refs/heads/" + childBranchName).getObjectId())
+    val parentCommit = walk.parseCommit(repo.getRef("refs/heads/" + parentBranchName).getObjectId())
+
+    distanceTo(parentCommit, childCommit)
+  }
 }

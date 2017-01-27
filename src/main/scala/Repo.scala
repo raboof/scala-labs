@@ -4,4 +4,5 @@
 trait Repo {
 
   def isParent(parentBranch: String, childBranch: String): Boolean
+  def distanceTo(parentBranchName: String, childBranch: String): Option[Int]
 }

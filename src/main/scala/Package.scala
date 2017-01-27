@@ -10,22 +10,25 @@ import org.eclipse.jgit.storage.file._
 
 object Package {
   def run(course: Course) = {
-    val branches = course.steps.flatMap { case (from, to) => List(from, to) }
+    val branches = course.steps
+    val to = createShallowClone(branches.head._1)
 
-    val to = createShallowClone(branches.head)
-
-    branches.tail.foreach { branch => {
+    branches.foreach { case (given, solution) => {
         // jgit can't do shallow fetches yet, https://bugs.eclipse.org/bugs/show_bug.cgi?id=475615
-        runCmd(Seq("git", "remote", "set-branches", "origin", branch), to.jfile)
-        // TODO determine the Depth to make sure it includes the parent
-        runCmd(Seq("git", "fetch", "--depth", "1", "origin", branch), to.jfile)
-        runCmd(Seq("git", "checkout", branch), to.jfile)
+        runCmd(Seq("git", "remote", "set-branches", "origin", solution), to.jfile)
+
+        // Actually getting the current depth does not seem to work immediately
+        runCmd(Seq("git", "fetch", "--depth", "1", "origin", solution), to.jfile)
+        runCmd(Seq("git", "checkout", solution), to.jfile)
+
+        // So get them now
+        runCmd(Seq("git", "fetch", "--depth", GitRepo.distanceTo(given, solution).map(_ + 1).getOrElse(1).toString, "origin", solution), to.jfile)
       }
     }
-    runCmd(Seq("git", "checkout", branches.head), to.jfile)
-    runCmd(Seq("git", "remote", "remove", "origin"), to.jfile)
+    runCmd(Seq("git", "checkout", branches.head._1), to.jfile)
+    // runCmd(Seq("git", "remote", "remove", "origin"), to.jfile)
 
-    // TODO
+    // TODO actually create a zip
   }
 
   def createShallowClone(firstBranch: String): DefaultPath = {
