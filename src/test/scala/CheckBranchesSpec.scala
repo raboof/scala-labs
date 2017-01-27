@@ -11,12 +11,16 @@ class CheckBranchesSpec extends FlatSpec with Matchers {
   )
 
   it should "compare clean branches from a repository" in {
-    val checkBranches = CheckBranches((parentBranch, childBranch) => true)
+    val checkBranches = CheckBranches(new Repo {
+      override def isParent(parentBranch: String, childBranch: String): Boolean = true
+    })
     checkBranches.checkDirtySteps(course.steps) should contain theSameElementsInOrderAs List()
   }
 
   it should "compare all dirty branches from a repository" in {
-    val checkBranches = CheckBranches((parentBranch, childBranch) => false)
+    val checkBranches = CheckBranches(new Repo {
+      override def isParent(parentBranch: String, childBranch: String): Boolean = false
+    })
     checkBranches.checkDirtySteps(course.steps) should contain theSameElementsInOrderAs course.steps
   }
 
