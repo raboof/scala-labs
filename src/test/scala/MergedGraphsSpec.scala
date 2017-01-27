@@ -7,21 +7,21 @@ class MergedGraphsSpec extends FlatSpec with Matchers {
     val desiredGraph = Graph(Seq("solution" -> "given"))
     val actualGraph = Graph.empty[String]
 
-    MergedGraphs(desiredGraph, actualGraph).merges should contain theSameElementsAs (Seq("given" -> "solution"))
+    mergedGraphs(desiredGraph, actualGraph) should contain theSameElementsAs (Seq("given" -> "solution"))
   }
 
   it should "suggest a transitive merge" in {
     val desiredGraph = Graph(Seq("intermediate" -> "given", "solution" -> "intermediate"))
     val actualGraph = Graph(Seq("solution" -> "intermediate"))
 
-    MergedGraphs(desiredGraph, actualGraph).merges should contain theSameElementsInOrderAs (Seq("given" -> "intermediate", "intermediate" -> "solution"))
+    mergedGraphs(desiredGraph, actualGraph) should contain theSameElementsInOrderAs (Seq("given" -> "intermediate", "intermediate" -> "solution"))
   }
 
   it should "suggest merges in separate parts of a disconnected graph" in {
     val desiredGraph = Graph(Seq("some" -> "other", "foo" -> "bar"))
     val actualGraph = Graph.empty[String]
 
-    MergedGraphs(desiredGraph, actualGraph).merges should contain theSameElementsAs (Seq("other" -> "some", "bar" -> "foo"))
+    mergedGraphs(desiredGraph, actualGraph) should contain theSameElementsAs (Seq("other" -> "some", "bar" -> "foo"))
   }
 
 }

@@ -8,7 +8,14 @@ class CheckBranches(repo: Repo) {
       case (child, parent) => repo.isParent(parent, child)
     }
 
-    MergedGraphs(desiredCourseGraph, actualGraph).merges
+    mergedGraphs(desiredCourseGraph, actualGraph)
+  }
+
+  def toString(courseSteps: Seq[(String, String)]) = {
+    courseSteps.flatMap {
+      case (desiredParent, child) =>
+        List(s"git checkout $child", s"git merge -m 'propagate changes' $desiredParent")
+    }.mkString(" &&\n  ")
   }
 }
 
@@ -16,23 +23,23 @@ object CheckBranches {
 
   def apply(repo: Repo): CheckBranches = new CheckBranches(repo)
 
-  case class MergedGraphs(desiredGraph: Graph[String], actualGraph: Graph[String]) {
+  def mergedGraphs(desiredGraph: Graph[String], actualGraph: Graph[String]): Seq[(String, String)] = {
     def recommendedMerges(node: String, desiredParent: String): Vector[(String, String)] = {
-      val parentMerges = recommendedMerges(desiredParent)
+      val parentMerges = merge(desiredParent)
       if (parentMerges.isEmpty && actualGraph.parents(node).contains(desiredParent)) Vector.empty
       else parentMerges :+ (desiredParent -> node)
     }
 
-    def recommendedMerges(node: String): Vector[(String, String)] = {
+    def merge(node: String): Vector[(String, String)] = {
       desiredGraph
         .parents(node)
         .toVector
         .flatMap(recommendedMerges(node, _))
     }
 
-    lazy val merges = desiredGraph
+    desiredGraph
       .leafs
-      .flatMap(recommendedMerges)
+      .flatMap(merge)
       .foldLeft(List.empty[(String, String)])((acc, e) => if (acc.contains(e)) acc else acc :+ e)
   }
 
