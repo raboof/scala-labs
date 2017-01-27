@@ -16,15 +16,19 @@ object GitRepo extends Repo {
     } else if (maxDepth == 0) {
       false
     } else {
-      val parents = Option(walk.parseCommit(child.getId()).getParents)
-      parents.map(_.filter(p => isParent(parent, p, maxDepth - 1)).nonEmpty).getOrElse(false)
+      val parents = Option(walk.parseCommit(child.getId).getParents)
+      parents.exists(_.exists(p => isParent(parent, p, maxDepth - 1)))
     }
   }
 
   def isParent(parentBranch: String, childBranch: String): Boolean = {
-    // TODO: Take into account remotes/origin/[branch-name]
-    val childCommit = walk.parseCommit(repo.getRef("refs/heads/" + childBranch).getObjectId())
-    val parentCommit = walk.parseCommit(repo.getRef("refs/heads/" + parentBranch).getObjectId())
+    def gitRefObject(branch: String) =
+      Option(repo.getRef("refs/heads/" + branch))
+        .orElse(Option(repo.getRef("refs/remotes/origin/" + branch)))
+        .map(_.getObjectId).get
+
+    val childCommit = walk.parseCommit(gitRefObject(childBranch))
+    val parentCommit = walk.parseCommit(gitRefObject(parentBranch))
 
     isParent(parentCommit, childCommit)
   }

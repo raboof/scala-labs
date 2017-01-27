@@ -4,7 +4,7 @@ class CheckBranchesSpec extends FlatSpec with Matchers {
 
   val course = Course("Basic Scala",
     steps = Seq(
-      "given" -> "basic02",
+      "given"   -> "basic02",
       "basic02" -> "basic03",
       "basic03" -> "basic04",
       "basic04" -> "basic-final")

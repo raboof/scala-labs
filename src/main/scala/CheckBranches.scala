@@ -10,13 +10,6 @@ class CheckBranches(repo: Repo) {
 
     mergedGraphs(desiredCourseGraph, actualGraph)
   }
-
-  def toString(courseSteps: Seq[(String, String)]) = {
-    courseSteps.flatMap {
-      case (desiredParent, child) =>
-        List(s"git checkout $child", s"git merge -m 'propagate changes' $desiredParent")
-    }.mkString(" &&\n  ")
-  }
 }
 
 object CheckBranches {
