@@ -1,12 +1,7 @@
 import java.io.File
+
 import scalax.file.Path
 import scalax.file.defaultfs.DefaultPath
-
-import sys.process._
-
-import org.eclipse.jgit.lib._
-import org.eclipse.jgit.api._
-import org.eclipse.jgit.storage.file._
 
 object Package {
   def run(course: Course) = {
