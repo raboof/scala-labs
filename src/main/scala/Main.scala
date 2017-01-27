@@ -10,10 +10,13 @@ object Main extends App {
   args.headOption match {
     case Some("status") =>
       Status.determineStatus(Courses.basic).map {
-        case Status.UpToDate(from, to) => s"$from -> $to: up-to-date" 
+        case Status.UpToDate(from, to) => s"$from -> $to: up-to-date"
       }.foreach(println)
     case Some("check") =>
       CheckBasicCourse.run()
+    case Some("package") =>
+      // TODO select course
+      Package.run(Courses.basic)
     case _ =>
       usage()
   }
