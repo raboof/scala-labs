@@ -1,5 +1,5 @@
-given->step 1:
 Note over given: Update version
+given->step 1: merge
 step 1->step 2: merge
 step 2->final solution: merge
 Note over step 1: Update assignment
