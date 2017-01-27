@@ -12,7 +12,6 @@ object Package {
     branches.tail.foreach { branch => {
         // jgit can't do shallow fetches yet, https://bugs.eclipse.org/bugs/show_bug.cgi?id=475615
         runCmd(Seq("git", "remote", "set-branches", "origin", branch), to.jfile)
-        // TODO determine the Depth to make sure it includes the parent
         runCmd(Seq("git", "fetch", "--depth", "1", "origin", branch), to.jfile)
         runCmd(Seq("git", "checkout", branch), to.jfile)
       }
@@ -20,7 +19,7 @@ object Package {
     runCmd(Seq("git", "checkout", branches.head), to.jfile)
     runCmd(Seq("git", "remote", "remove", "origin"), to.jfile)
 
-    // TODO
+    // TODO actually create a package 
   }
 
   def createShallowClone(firstBranch: String): DefaultPath = {
