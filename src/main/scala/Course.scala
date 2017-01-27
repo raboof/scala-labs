@@ -7,6 +7,7 @@ case class Course(
   name: String,
   steps: Seq[(String, String)]
 )
+
 object Courses {
   // TODO of course read this from a configuration file:
   val basic = Course("Basic Scala",

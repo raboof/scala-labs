@@ -1,8 +1,7 @@
 object CheckBasicCourse {
-  import CheckBranches._
 
   def run() = {
-    val mergeCommands = checkBranches(Courses.basic.steps)
+    val mergeCommands = CheckBranches(GitRepo).checkDirtySteps(Courses.basic.steps)
     if (mergeCommands.isEmpty) {
       println("Branches are up-to-date!")
     } else {

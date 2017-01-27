@@ -1,26 +1,23 @@
-import org.scalatest._
+import org.scalatest.{FlatSpec, Matchers}
 
 class CheckBranchesSpec extends FlatSpec with Matchers {
-  import CheckBranches._
 
-  "Graphs" should "suggest a simple merge" in {
-    val desiredGraph = Graph(Seq("solution" -> "given"))
-    val actualGraph = Graph.empty[String]
+  val course = Course("Basic Scala",
+    steps = Seq(
+      "given" -> "basic02",
+      "basic02" -> "basic03",
+      "basic03" -> "basic04",
+      "basic04" -> "basic-final")
+  )
 
-    Graphs(desiredGraph, actualGraph).merges should contain theSameElementsAs (Seq("given" -> "solution"))
+  it should "compare clean branches from a repository" in {
+    val checkBranches = CheckBranches((parentBranch, childBranch) => true)
+    checkBranches.checkDirtySteps(course.steps) should contain theSameElementsInOrderAs List()
   }
 
-  it should "suggest a transitive merge" in {
-    val desiredGraph = Graph(Seq("intermediate" -> "given", "solution" -> "intermediate"))
-    val actualGraph = Graph(Seq("solution" -> "intermediate"))
-
-    Graphs(desiredGraph, actualGraph).merges should contain theSameElementsInOrderAs (Seq("given" -> "intermediate", "intermediate" -> "solution"))
+  it should "compare all dirty branches from a repository" in {
+    val checkBranches = CheckBranches((parentBranch, childBranch) => false)
+    checkBranches.checkDirtySteps(course.steps) should contain theSameElementsInOrderAs course.steps
   }
 
-  it should "suggest merges in separate parts of a disconnected graph" in {
-    val desiredGraph = Graph(Seq("some" -> "other", "foo" -> "bar"))
-    val actualGraph = Graph.empty[String]
-
-    Graphs(desiredGraph, actualGraph).merges should contain theSameElementsAs (Seq("other" -> "some", "bar" -> "foo"))
-  }
 }
